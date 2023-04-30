@@ -54,6 +54,8 @@ contract UniswapBot is ReentrancyGuard {
         uint256 _launchTimestamp,
         uint256 _tradingWindow
     ) {
+        require(_tradingWindow > 0, "Trading window must be greater than 0");
+
         // Initialize variables in constructor
         uniswapV2Router = IUniswapV2Router02(_uniswapV2RouterAddress);
         uniswapV2Factory = IUniswapV2Factory(uniswapV2Router.factory());
@@ -72,6 +74,8 @@ contract UniswapBot is ReentrancyGuard {
     function swapETHForTokens(
         uint256 slippageTolerance
     ) external payable nonReentrant withinTradingWindow notInEmergency {
+        require(slippageTolerance >= 0 && slippageTolerance <= 10000, "Invalid slippage tolerance");
+
         uint256 ethAmount = msg.value;
 
         // Define the path for the swap
@@ -80,7 +84,8 @@ contract UniswapBot is ReentrancyGuard {
         path[1] = address(token);
 
         // Calculate the minimum amount of tokens to receive
-        uint256 tokensOut = uniswapV2Router.getAmountsOut(ethAmount, path)[1];
+        uint256 tokensOut = uniswapV2Router.getAmountsOut
+                uint256 tokensOut = uniswapV2Router.getAmountsOut(ethAmount, path)[1];
         uint256 minTokens = (tokensOut * (10000 - slippageTolerance)) / 10000;
 
         // Perform the swap
@@ -114,6 +119,7 @@ contract UniswapBot is ReentrancyGuard {
         uint256 slippageTolerance
     ) external nonReentrant withinTradingWindow notInEmergency {
         require(tokenAmount > 0, "Token amount must be greater than 0");
+        require(slippageTolerance >= 0 && slippageTolerance <= 10000, "Invalid slippage tolerance");
 
         // Transfer tokens from the sender to the contract
         token.transferFrom(msg.sender, address(this), tokenAmount);
@@ -144,7 +150,7 @@ contract UniswapBot is ReentrancyGuard {
             uint256 ethReceived = amounts[1];
             require(ethReceived >= minEth, "Received less ETH than expected");
 
-            emit SwapTokensForETH(tokenAmount, ethReceived); // You need to define this event at the beginning of the contract
+            emit SwapTokensForETH(tokenAmount, ethReceived);
         } catch Error(string memory reason) {
             // Handle errors from Uniswap router
             revert(reason);
@@ -174,10 +180,5 @@ contract UniswapBot is ReentrancyGuard {
 
         // Emit event
         emit EmergencyStopTriggered(emergencyStopActive);
-    }
-
-    function transferOwnership(address newOwner) public onlyOwner {
-        require(newOwner != address(0), "New owner is the zero address");
-        owner = newOwner;
     }
 }
