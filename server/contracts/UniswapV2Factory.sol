@@ -1,6 +1,6 @@
-pragma solidity =0.5.16;
+pragma solidity ^0.8.0;
 
-import "./interfaces/IUniswapV2Factory.sol";
+import "https://github.com/Uniswap/v2-core/blob/master/contracts/interfaces/IUniswapV2Factory.sol";
 import "./UniswapV2Pair.sol";
 
 contract UniswapV2Factory is IUniswapV2Factory {
