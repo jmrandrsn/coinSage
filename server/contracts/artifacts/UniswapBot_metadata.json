@@ -1,0 +1,349 @@
+{
+	"compiler": {
+		"version": "0.8.19+commit.7dd6d404"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_tokenAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_uniswapV3RouterAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_uniswapV3FactoryAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_WETHAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_launchTimestamp",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_tradingWindow",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "isActive",
+						"type": "bool"
+					}
+				],
+				"name": "EmergencyStopTriggered",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "ethAmount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "tokensReceived",
+						"type": "uint256"
+					}
+				],
+				"name": "SwapETHForTokens",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "tokenAmount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "ethReceived",
+						"type": "uint256"
+					}
+				],
+				"name": "SwapTokensForETH",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "tokenAmount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "ethAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "Withdraw",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "WETH",
+				"outputs": [
+					{
+						"internalType": "contract IWETH9",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "emergencyStopActive",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getETHBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "launchTimestamp",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "slippageTolerance",
+						"type": "uint256"
+					}
+				],
+				"name": "swapETHForTokens",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "tokenAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "slippageTolerance",
+						"type": "uint256"
+					}
+				],
+				"name": "swapTokensForETH",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "token",
+				"outputs": [
+					{
+						"internalType": "contract IERC20Minimal",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "tradingWindow",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "triggerEmergencyStop",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "uniswapV3Factory",
+				"outputs": [
+					{
+						"internalType": "contract IUniswapV3Factory",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "uniswapV3Router",
+				"outputs": [
+					{
+						"internalType": "contract ISwapRouter",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Contracts/snipe.sol": "UniswapBot"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/security/ReentrancyGuard.sol": {
+			"keccak256": "0x190dd6f8d592b7e4e930feb7f4313aeb8e1c4ad3154c27ce1cf6a512fc30d8cc",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://4ce8dfb62d0c4fa260d6eec8f1cd47f5f2a044e11bde5b31d18072fa6e7d9010",
+				"dweb:/ipfs/QmTyFztU3tLEcEDnqqiaW4UJetqsU77LXc6pjc9oTXCK5u"
+			]
+		},
+		"Contracts/interfaces/IERC20Minimal.sol": {
+			"keccak256": "0x5780901e2263a6f5bddaaaa83f81992564cbf53accf8b190dda0175de5f35696",
+			"license": "GPL-2.0-or-later",
+			"urls": [
+				"bzz-raw://b5be2e3cfffb8305c25ad102ad6f87f9b850cc7e4786b5cf5e5dc5b566120bb8",
+				"dweb:/ipfs/QmPuHb8EF82goYmJbY8oQWhtAwjqdZdFPpdGd5Qu48eskK"
+			]
+		},
+		"Contracts/interfaces/ISwapRouter.sol": {
+			"keccak256": "0xbd16bbd1dc97411ef2a2eec941ac65be759f0ab5a4a4c41a8dd67f21c670478d",
+			"license": "GPL-2.0-or-later",
+			"urls": [
+				"bzz-raw://8b138b6f9fa1da88029e21cdf095aeb5c55f8967383ff50efbb475512f874250",
+				"dweb:/ipfs/QmRAHEyQUuJ7c3nqKNg9xFWcm9RYWbjaumFkCTerBRcAJf"
+			]
+		},
+		"Contracts/interfaces/IUniswapV3Factory.sol": {
+			"keccak256": "0xeb8deac356a9f2aed13f1caf289a785c7457404cdb516510001c3b22a2ad717d",
+			"license": "GPL-2.0-or-later",
+			"urls": [
+				"bzz-raw://d54ed6b3463c0b1b01866054d7b71618e5006fac287e344758958cf32dbe88cd",
+				"dweb:/ipfs/QmQudPaKpDyHcMLRsY8vwysPhbprivBdMism4PtjMwJ6f9"
+			]
+		},
+		"Contracts/interfaces/IWETH9.sol": {
+			"keccak256": "0x9cc019937d4a4ffca2130389692acd71c135fa4ed8a1332875f6da665aa6ab6e",
+			"license": "GPL-2.0-or-later",
+			"urls": [
+				"bzz-raw://53abdaf27bc33bb864602f3030ec1c680384e816274de1479a4f5e6a56e73d7b",
+				"dweb:/ipfs/QmaEKGAaH17rHeUezqudbAauotRFNvuSTccJiAZkYUqDKz"
+			]
+		},
+		"Contracts/interfaces/callback/IUniswapV3SwapCallback.sol": {
+			"keccak256": "0x0b55e4b363711251c767e2ea579cdab2625e81857b2ccebe26060ce5bcf428f8",
+			"license": "GPL-2.0-or-later",
+			"urls": [
+				"bzz-raw://84473fcc963e6a4ff6d7db9f205c39938fd93050a2307030867c41d0bad04e82",
+				"dweb:/ipfs/Qmc5LCzCejHES3kfqY55LH8n2GEYMCGHxc8rmjy5LX6xfz"
+			]
+		},
+		"Contracts/snipe.sol": {
+			"keccak256": "0x7052e7e03db8b16abab4e93ba7d7f5031e7c2cfec39cc353fb8c882549c6adb6",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://30c00c15e013c6a2bff24dd462eea4eb9afdaf1d581f89a8d60301f918fc56f4",
+				"dweb:/ipfs/QmP2hx4tr4d7xwb3EhHtFfTESUHBgiRuj5RqdTC8e2xKaJ"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,0 +1,337 @@
+{
+	"compiler": {
+		"version": "0.8.19+commit.7dd6d404"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "Approval",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "Transfer",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					}
+				],
+				"name": "allowance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "approve",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "balanceOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "deposit",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "transfer",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "transferFrom",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"events": {
+				"Approval(address,address,uint256)": {
+					"params": {
+						"owner": "The account that approved spending of its tokens",
+						"spender": "The account for which the spending allowance was modified",
+						"value": "The new allowance from the owner to the spender"
+					}
+				},
+				"Transfer(address,address,uint256)": {
+					"params": {
+						"from": "The account from which the tokens were sent, i.e. the balance decreased",
+						"to": "The account to which the tokens were sent, i.e. the balance increased",
+						"value": "The amount of tokens that were transferred"
+					}
+				}
+			},
+			"kind": "dev",
+			"methods": {
+				"allowance(address,address)": {
+					"params": {
+						"owner": "The account of the token owner",
+						"spender": "The account of the token spender"
+					},
+					"returns": {
+						"_0": "The current allowance granted by `owner` to `spender`"
+					}
+				},
+				"approve(address,uint256)": {
+					"params": {
+						"amount": "The amount of tokens allowed to be used by `spender`",
+						"spender": "The account which will be allowed to spend a given amount of the owners tokens"
+					},
+					"returns": {
+						"_0": "Returns true for a successful approval, false for unsuccessful"
+					}
+				},
+				"balanceOf(address)": {
+					"params": {
+						"account": "The account for which to look up the number of tokens it has, i.e. its balance"
+					},
+					"returns": {
+						"_0": "The number of tokens held by the account"
+					}
+				},
+				"transfer(address,uint256)": {
+					"params": {
+						"amount": "The number of tokens to send from the sender to the recipient",
+						"recipient": "The account that will receive the amount transferred"
+					},
+					"returns": {
+						"_0": "Returns true for a successful transfer, false for an unsuccessful transfer"
+					}
+				},
+				"transferFrom(address,address,uint256)": {
+					"params": {
+						"amount": "The amount of the transfer",
+						"recipient": "The recipient of the transfer",
+						"sender": "The account from which the transfer will be initiated"
+					},
+					"returns": {
+						"_0": "Returns true for a successful transfer, false for unsuccessful"
+					}
+				}
+			},
+			"title": "Interface for WETH9",
+			"version": 1
+		},
+		"userdoc": {
+			"events": {
+				"Approval(address,address,uint256)": {
+					"notice": "Event emitted when the approval amount for the spender of a given owner's tokens changes."
+				},
+				"Transfer(address,address,uint256)": {
+					"notice": "Event emitted when tokens are transferred from one address to another, either via `#transfer` or `#transferFrom`."
+				}
+			},
+			"kind": "user",
+			"methods": {
+				"allowance(address,address)": {
+					"notice": "Returns the current allowance given to a spender by an owner"
+				},
+				"approve(address,uint256)": {
+					"notice": "Sets the allowance of a spender from the `msg.sender` to the value `amount`"
+				},
+				"balanceOf(address)": {
+					"notice": "Returns the balance of a token"
+				},
+				"deposit()": {
+					"notice": "Deposit ether to get wrapped ether"
+				},
+				"transfer(address,uint256)": {
+					"notice": "Transfers the amount of token from the `msg.sender` to the recipient"
+				},
+				"transferFrom(address,address,uint256)": {
+					"notice": "Transfers `amount` tokens from `sender` to `recipient` up to the allowance given to the `msg.sender`"
+				},
+				"withdraw(uint256)": {
+					"notice": "Withdraw wrapped ether to get ether"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Contracts/interfaces/IWETH9.sol": "IWETH9"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Contracts/interfaces/IERC20Minimal.sol": {
+			"keccak256": "0x5780901e2263a6f5bddaaaa83f81992564cbf53accf8b190dda0175de5f35696",
+			"license": "GPL-2.0-or-later",
+			"urls": [
+				"bzz-raw://b5be2e3cfffb8305c25ad102ad6f87f9b850cc7e4786b5cf5e5dc5b566120bb8",
+				"dweb:/ipfs/QmPuHb8EF82goYmJbY8oQWhtAwjqdZdFPpdGd5Qu48eskK"
+			]
+		},
+		"Contracts/interfaces/IWETH9.sol": {
+			"keccak256": "0x9cc019937d4a4ffca2130389692acd71c135fa4ed8a1332875f6da665aa6ab6e",
+			"license": "GPL-2.0-or-later",
+			"urls": [
+				"bzz-raw://53abdaf27bc33bb864602f3030ec1c680384e816274de1479a4f5e6a56e73d7b",
+				"dweb:/ipfs/QmaEKGAaH17rHeUezqudbAauotRFNvuSTccJiAZkYUqDKz"
+			]
+		}
+	},
+	"version": 1
+}
